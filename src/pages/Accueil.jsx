@@ -83,7 +83,7 @@ function Formule({ f }) {
       <CarteVisuelle formule={f} />
       <div className="formule__prix">
         <div>
-          <span className="etiquette">Plafond de chargement</span>
+          <span className="etiquette">Plafond</span>
           <strong>{formatEur(f.plafondChargement)}<small></small></strong>
         </div>
         <div className="formule__abonnement">
