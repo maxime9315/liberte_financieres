@@ -1,0 +1,130 @@
+// Tarifs d'exemple : à remplacer par la grille tarifaire officielle
+// de l'établissement émetteur partenaire avant toute mise en ligne.
+
+export const PARTENAIRE = {
+  nom: '[Nom de l’établissement partenaire]',
+  statut: 'établissement de monnaie électronique',
+  agrement: '[n° d’agrément ACPR]',
+}
+
+export const FORMULES = [
+  {
+    id: 'starter',
+    nom: 'Starter',
+    numero: '4120',
+    expiration: '12/29',
+    theme: 'starter',
+    mensuel: 0,
+    plafondChargement: 11000,
+    retraitsGratuits: 2,
+    fraisRetrait: 1,
+    fraisDevises: 2,
+    support: 'Virtuelle',
+    services: 'App mobile',
+    avantages: [
+      <>retrait jusqu'a <strong>1 000 € / jour</strong></>,
+      <>valide <strong>45 jours</strong> apres le premier retrait</>,
+    ],
+  },
+  {
+    id: 'bronze',
+    nom: 'Bronze',
+    edition: 'Cuivre satiné',
+    numero: '6584',
+    expiration: '03/30',
+    theme: 'bronze',
+    mensuel: 400,
+    plafondChargement: 13000,
+    retraitsGratuits: 4,
+    fraisRetrait: 1,
+    fraisDevises: 1.5,
+    support: 'Physique + Virtuelle',
+    services: '3D Secure v2',
+    avantages: [
+      <>retrait jusqu'a <strong>1500 € / jour</strong></>,
+      <>valide <strong>60 jours</strong> apres le premier retrait</>,
+    ],
+  },
+  {
+    id: 'silver',
+    nom: 'Silver',
+    edition: 'Argent métallisé',
+    numero: '9211',
+    expiration: '08/30',
+    theme: 'silver',
+    mensuel: 500,
+    plafondChargement: 16000,
+    retraitsGratuits: 8,
+    fraisRetrait: 1,
+    fraisDevises: 1,
+    support: 'Physique + 3 Virtuelles',
+    services: 'Assurance achats',
+    avantages: [
+      <>retrait jusqu'a <strong>2500 € / jour</strong></>,
+      <>valide <strong>60 jours</strong> apres le premier retrait</>,
+    ],
+  },
+  {
+    id: 'gold',
+    nom: 'Gold',
+    edition: 'Édition étalon',
+    numero: '8839',
+    expiration: '11/30',
+    theme: 'gold',
+    populaire: true,
+    mensuel: 600,
+    plafondChargement: 20000,
+    retraitsGratuits: Infinity,
+    fraisRetrait: 0,
+    fraisDevises: 0.5,
+    support: 'Or brossé + Virtuelle',
+    services: 'Assistance 7j/7',
+    avantages: [
+      <>retrait jusqu'a <strong>3000 € / jour</strong></>,
+      <>valide <strong>90 jours</strong> apres le premier retrait</>,
+    ],
+  },
+  {
+    id: 'platinum',
+    nom: 'Platinum',
+    edition: 'Bleu métal brossé',
+    numero: '3042',
+    expiration: '05/31',
+    theme: 'platinum',
+    mensuel: 750,
+    plafondChargement: 25000,
+    retraitsGratuits: Infinity,
+    fraisRetrait: 0,
+    fraisDevises: 0,
+    support: 'Métal gravé laser',
+    services: 'Conciergerie + Lounges',
+    avantages: [
+      <>retrait jusqu'a <strong>3500€ / jour</strong></>,
+      <>valide <strong>90 jours</strong> apres le premier retrait</>,
+    ],
+  },
+  {
+    id: 'infinity',
+    nom: 'Diamond Infinity',
+    edition: 'Titane absolu',
+    numero: '0001',
+    expiration: '01/32',
+    theme: 'infinity',
+    mensuel: 1000,
+    plafondChargement: 30000,
+    retraitsGratuits: Infinity,
+    fraisRetrait: 0,
+    fraisDevises: 0,
+    support: 'Titane par coursier',
+    services: 'Conseiller dédié',
+    avantages: [
+      <>retrait jusqu'a <strong>4009 € / jour</strong></>,
+      <>valide <strong>90 jours</strong> apres le premier retrait</>,
+    ],
+  },
+]
+
+const eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 })
+const eurRond = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 })
+
+export const formatEur = (n) => (Number.isInteger(n) ? eurRond : eur).format(n)
