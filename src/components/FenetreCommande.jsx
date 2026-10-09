@@ -3,13 +3,14 @@ import { ouvrirWhatsApp, WHATSAPP_NUMERO } from '../data/contact.js'
 import Fenetre from './Fenetre.jsx'
 import { IconeFleche } from './Icones.jsx'
 
-const VIDE = { prenom: '', nom: '', email: '', codePostal: '' }
+const VIDE = { prenom: '', nom: '', email: '', adresse: '', codePostal: '' }
 
 function valider(v) {
   const e = {}
   if (!v.prenom.trim()) e.prenom = 'Prénom requis'
   if (!v.nom.trim()) e.nom = 'Nom requis'
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim())) e.email = 'Adresse e-mail invalide'
+  if (!v.adresse.trim()) e.adresse = 'Adresse requise'
   if (!/^\d{5}$/.test(v.codePostal.trim())) e.codePostal = 'Code postal à 5 chiffres'
   return e
 }
@@ -21,6 +22,7 @@ function message(formule, v) {
     `Prénom : ${v.prenom.trim()}`,
     `Nom : ${v.nom.trim()}`,
     `E-mail : ${v.email.trim()}`,
+    `Adresse : ${v.adresse.trim()}`,
     `Code postal : ${v.codePostal.trim()}`,
   ].join('\n')
 }
@@ -67,6 +69,10 @@ export default function FenetreCommande({ formule, onFermer }) {
           {champ('nom', 'Nom', { autoComplete: 'family-name' })}
         </div>
         {champ('email', 'Adresse e-mail', { type: 'email', autoComplete: 'email' })}
+        {champ('adresse', 'Adresse', {
+          autoComplete: 'street-address',
+          placeholder: '12 rue de la Paix',
+        })}
         {champ('codePostal', 'Code postal', {
           inputMode: 'numeric',
           autoComplete: 'postal-code',
