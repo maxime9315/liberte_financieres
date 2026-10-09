@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Navigation from './components/Navigation.jsx'
 import PiedDePage from './components/PiedDePage.jsx'
 import Accueil from './pages/Accueil.jsx'
+import EvolutionCommande from './pages/EvolutionCommande.jsx'
 import './App.css'
 
 // Remonte en haut de page à chaque changement de page (sauf ancre #…).
@@ -22,6 +23,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Accueil />} />
+          <Route path="/evolution-commande" element={<EvolutionCommande />} />
           <Route path="*" element={<Accueil />} />
         </Routes>
       </main>

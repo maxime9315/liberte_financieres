@@ -16,6 +16,7 @@ export default function Navigation() {
         <nav className="nav__liens">
           <NavLink to="/" end>Accueil</NavLink>
           <Link to="/#formules">Nos cartes</Link>
+          <NavLink to="/evolution-commande">Évolution</NavLink>
         </nav>
         <div className="nav__actions">
           <a
