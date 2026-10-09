@@ -524,8 +524,19 @@
 }
 
 @media (max-width: 640px) {
+  .nav__inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    row-gap: 8px;
+  }
   .nav__liens {
-    display: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+    font-size: 13px;
   }
   .formules__grille {
     grid-template-columns: 1fr;
